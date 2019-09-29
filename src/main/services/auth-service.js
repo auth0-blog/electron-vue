@@ -69,7 +69,9 @@ function refreshTokens () {
       accessToken = body.access_token
       profile = jwtDecode(body.id_token)
 
-      resolve(accessToken)
+      global.accessToken = accessToken
+
+      resolve()
     })
   })
 }
@@ -103,6 +105,7 @@ function loadTokens (callbackURL) {
 
       const responseBody = JSON.parse(body)
       accessToken = responseBody.access_token
+      global.accessToken = accessToken
       profile = jwtDecode(responseBody.id_token)
       refreshToken = responseBody.refresh_token
 
