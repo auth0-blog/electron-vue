@@ -8,7 +8,7 @@
         <div>
             <div>
                 <ul>
-                    <li v-for="todo in todos" :key="todo.id">{{todo.task}}</li>
+                    <li v-for="todo in todos" :key="todo.id">{{todo.title}}</li>
                 </ul>
             </div>
         </div>
@@ -26,7 +26,7 @@
     methods: {
       async fetchTodos () {
         axios
-          .get('http://localhost:1337/todos')
+          .get('http://localhost:3001/')
           .then(response => {
             console.log(response)
             this.todos = response.data
